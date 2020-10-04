@@ -24186,3 +24186,121 @@ java.lang.NullPointerException
 2020-10-04 21:20:52 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
 2020-10-04 21:20:55 INFO  ApacheHttpClient.completed(28) - responseCode = 200
 2020-10-04 21:20:55 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:21:16 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:21:17 INFO  ApacheHttpClient.getFilteredTasks(333) - responseCode = 200
+2020-10-04 21:21:23 INFO  ApacheHttpClient.getTaskTemplateInfo(350) - responseCode = 200
+2020-10-04 21:21:25 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:21:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:22:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:23:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:24:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:25:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:26:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:27:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:28:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:29:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:30:28 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:31:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:32:28 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:33:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:34:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:35:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:35:28 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:35:28 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:35:32 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:35:33 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:35:36 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:35:37 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:36:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:37:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:38:27 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:38:35 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:38:36 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:38:50 INFO  PluginTasksProjectComponent.projectClosing(188) - ---------- Project closed ----------
+
+2020-10-04 21:38:50 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:50 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:50 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:50 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:50 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:51 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:52 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:52 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:52 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:38:54 INFO  PluginTasksProjectComponent.projectOpened(77) - ---------- Project opened ----------
+2020-10-04 21:38:54 INFO  PluginTasksProjectComponent.projectOpened(77) - ---------- Project opened ----------
+2020-10-04 21:38:54 INFO  PluginTasksProjectComponent.projectOpened(78) - ---------- Version 3.42 ----------
+
+2020-10-04 21:38:54 INFO  PluginTasksProjectComponent.projectOpened(78) - ---------- Version 3.42 ----------
+
+2020-10-04 21:38:54 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(594) - Waiting for server response.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(594) - Waiting for server response.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(594) - Waiting for server response.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(594) - Waiting for server response.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.refreshUserInfo(302) - responseCode = 200
+2020-10-04 21:38:54 INFO  ApacheHttpClient.refreshUserInfo(302) - responseCode = 200
+2020-10-04 21:38:54 INFO  ApacheHttpClient.refreshUserInfo(308) - User information received.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.refreshUserInfo(308) - User information received.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.startGA(35) - GAService started.
+2020-10-04 21:38:54 INFO  ApacheHttpClient.startGA(35) - GAService started.
+2020-10-04 21:38:54 INFO  AbstractRestApiClient.startService(71) - EventsService started.
+2020-10-04 21:38:54 INFO  AbstractRestApiClient.startService(71) - EventsService started.
+2020-10-04 21:38:57 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:38:57 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:01 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:01 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:02 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:02 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:07 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:07 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:07 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:07 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:12 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:12 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:39:12 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:12 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:39:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:39:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:40:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:40:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:41:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:41:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:42:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:42:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:43:16 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:43:16 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:43:16 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:43:16 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:43:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:43:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:44:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:44:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:45:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:45:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:46:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:46:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:47:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:47:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:48:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:48:54 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 21:49:05 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:05 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:06 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:06 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:06 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:49:06 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:49:11 INFO  ApacheHttpClient.completed(28) - responseCode = 200
+2020-10-04 21:49:11 INFO  ApacheHttpClient.completed(28) - responseCode = 200
+2020-10-04 21:49:11 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:49:11 INFO  ApacheHttpClient.getTask(480) - responseCode = 200
+2020-10-04 21:49:17 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:17 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-04 21:49:17 WARN  PluginUtil.getCurrentTask(71) - Error while retrieving the task key.
+2020-10-04 21:49:17 WARN  PluginUtil.getCurrentTask(71) - Error while retrieving the task key.
+2020-10-04 21:49:18 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
+2020-10-04 21:49:18 ERROR CorrectSolutionButton.actionPerformed(68) - Error while getting correct solution from server
