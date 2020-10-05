@@ -24490,3 +24490,30 @@ java.lang.NullPointerException
 2020-10-04 22:47:39 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
 2020-10-04 22:48:31 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
 2020-10-04 22:49:31 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 22:50:32 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 22:51:31 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 22:52:31 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 22:59:06 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-04 23:38:03 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 23:39:02 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-04 23:40:13 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 00:11:50 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 00:12:50 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 01:27:27 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 01:28:28 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 01:31:52 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 01:37:16 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 01:38:16 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 01:45:08 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 02:20:10 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 03:07:43 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 03:46:36 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 05:47:34 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 07:13:07 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 08:40:29 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 08:40:36 ERROR ApacheHttpClient.processExceptionSendEvent(109) - (super) : Error while sending the event to the server.
+2020-10-05 09:10:21 INFO  ApacheHttpClient.sendEvent(527) - responseCode = 200
+2020-10-05 09:10:44 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
+2020-10-05 09:10:45 INFO  ApacheHttpClient.getFilteredTasks(333) - responseCode = 200
+2020-10-05 09:10:49 INFO  ApacheHttpClient.getTaskTemplateInfo(350) - responseCode = 200
+2020-10-05 09:10:50 INFO  ApacheHttpClient.getWebResourceAsStream(494) - responseCode = 200
