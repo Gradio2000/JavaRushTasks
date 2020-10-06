@@ -30,6 +30,83 @@ public class Model {
         restartLevel(currentLevel);
     }
     public void move(Direction direction) {
+        Player player = gameObjects.getPlayer();
+        if (checkWallCollision(player, direction)){
+            return;
+        }
+        if (checkBoxCollisionAndMoveIfAvailable(direction)){
+            return;
+        }
 
+        switch (direction){
+            case LEFT:
+                player.move(-FIELD_CELL_SIZE, 0);
+                break;
+            case RIGHT:
+                player.move(FIELD_CELL_SIZE, 0);
+                break;
+            case UP:
+                player.move(0, -FIELD_CELL_SIZE);
+                break;
+            case DOWN:
+                player.move(0, FIELD_CELL_SIZE);
+                break;
+        }
+        checkCompletion();
+    }
+
+    public boolean checkWallCollision(CollisionObject gameObject, Direction direction){
+        for (Wall wall : gameObjects.getWalls()){
+            if (gameObject.isCollision(wall, direction)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkBoxCollisionAndMoveIfAvailable(Direction direction){
+        Player player = gameObjects.getPlayer();
+        for (Box box : gameObjects.getBoxes()){
+            if (player.isCollision(box, direction)){
+                if (checkWallCollision(box, direction)){
+                    return true;
+                }
+                for (Box box2 : gameObjects.getBoxes()){
+                    if (box.isCollision(box2, direction)){
+                        return true;
+                    }
+                }
+
+                switch (direction){
+                    case LEFT:
+                        box.move(-FIELD_CELL_SIZE, 0);
+                        break;
+                    case RIGHT:
+                        box.move(FIELD_CELL_SIZE, 0);
+                        break;
+                    case UP:
+                        box.move(0, -FIELD_CELL_SIZE);
+                        break;
+                    case DOWN:
+                        box.move(0, FIELD_CELL_SIZE);
+                        break;
+                }
+            }
+        }
+       return false;
+    }
+
+    public void checkCompletion(){
+        int countBox = 0;
+        for (Home home : gameObjects.getHomes()){
+            for (Box box : gameObjects.getBoxes()){
+                if (box.getX() == home.getX() && box.getY() == home.getY()){
+                    countBox++;
+                }
+            }
+        }
+        if (countBox == gameObjects.getBoxes().size()){
+            eventListener.levelCompleted(currentLevel);
+        }
     }
 }
