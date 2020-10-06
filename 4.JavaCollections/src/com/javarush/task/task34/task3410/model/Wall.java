@@ -9,7 +9,7 @@ public class Wall extends CollisionObject{
 
     @Override
     public void draw(Graphics graphics) {
-        graphics.setColor(Color.GREEN);
+        graphics.setColor(Color.GRAY);
         int xc = getX();
         int yc = getY();
         int height = getHeight();

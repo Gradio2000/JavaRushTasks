@@ -33,12 +33,11 @@ public class GameObjects {
     }
 
     public Set<GameObject> getAll(){
-        Set<GameObject> gameObjectSet = new HashSet<>();
-        gameObjectSet.addAll(getWalls());
-        gameObjectSet.addAll(getBoxes());
-        gameObjectSet.addAll(getHomes());
-        gameObjectSet.add(getPlayer());
-
-        return gameObjectSet;
+        Set<GameObject> objectSet = new HashSet<>();
+        objectSet.addAll(getWalls());
+        objectSet.addAll(getBoxes());
+        objectSet.addAll(getHomes());
+        objectSet.add(getPlayer());
+        return objectSet;
     }
 }

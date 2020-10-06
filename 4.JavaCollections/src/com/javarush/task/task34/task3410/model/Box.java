@@ -3,7 +3,6 @@ package com.javarush.task.task34.task3410.model;
 import java.awt.*;
 
 public class Box extends CollisionObject implements Movable{
-
     public Box(int x, int y) {
         super(x, y);
     }
@@ -25,10 +24,7 @@ public class Box extends CollisionObject implements Movable{
 
     @Override
     public void move(int x, int y) {
-        int newX = this.getX() + x;
-        int newY = this.getY() + y;
-
-        this.setX(newX);
-        this.setY(newY);
+        setX(getX() + x);
+        setY(getY() + y);
     }
 }

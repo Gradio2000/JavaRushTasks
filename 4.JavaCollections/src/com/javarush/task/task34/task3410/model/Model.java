@@ -2,30 +2,32 @@ package com.javarush.task.task34.task3410.model;
 
 import com.javarush.task.task34.task3410.controller.EventListener;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 public class Model {
     public static final int FIELD_CELL_SIZE = 20;
     private EventListener eventListener;
     private GameObjects gameObjects;
-    private int currentLevel = 1;
+    private int currentLevel = 60;
     private LevelLoader levelLoader = new LevelLoader(Paths.get("/Users/aleksejlaskin/Documents/JavaRushTasks/4.JavaCollections/src/com/javarush/task/task34/task3410/res/levels.txt"));
 
-    public void setEventListener(EventListener eventListener) {
+    public void setEventListener(EventListener eventListener){
         this.eventListener = eventListener;
     }
 
     public GameObjects getGameObjects(){
-        gameObjects = levelLoader.getLevel(currentLevel);
         return gameObjects;
     }
-    public void restartLevel(int level){
+
+    public void restartLevel(int level) throws IOException {
         gameObjects = levelLoader.getLevel(level);
     }
-    public void restart(){
+
+    public void restart() throws IOException {
         restartLevel(currentLevel);
     }
-    public void startNextLevel(){
+    public void startNextLevel() throws IOException {
         currentLevel++;
         restartLevel(currentLevel);
     }
@@ -37,7 +39,6 @@ public class Model {
         if (checkBoxCollisionAndMoveIfAvailable(direction)){
             return;
         }
-
         switch (direction){
             case LEFT:
                 player.move(-FIELD_CELL_SIZE, 0);
@@ -76,7 +77,6 @@ public class Model {
                         return true;
                     }
                 }
-
                 switch (direction){
                     case LEFT:
                         box.move(-FIELD_CELL_SIZE, 0);
@@ -93,19 +93,19 @@ public class Model {
                 }
             }
         }
-       return false;
+        return false;
     }
 
     public void checkCompletion(){
-        int countBox = 0;
+        int count = 0;
         for (Home home : gameObjects.getHomes()){
             for (Box box : gameObjects.getBoxes()){
                 if (box.getX() == home.getX() && box.getY() == home.getY()){
-                    countBox++;
+                    count++;
                 }
             }
         }
-        if (countBox == gameObjects.getBoxes().size()){
+        if (count == gameObjects.getBoxes().size()){
             eventListener.levelCompleted(currentLevel);
         }
     }

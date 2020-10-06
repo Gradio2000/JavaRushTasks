@@ -7,4 +7,5 @@ public interface EventListener {
     void restart();
     void startNextLevel();
     void levelCompleted(int level);
+
 }

@@ -5,23 +5,29 @@ import com.javarush.task.task34.task3410.model.GameObjects;
 import com.javarush.task.task34.task3410.model.Model;
 import com.javarush.task.task34.task3410.view.View;
 
+import java.io.IOException;
+
 public class Controller implements EventListener {
     private View view;
     private Model model;
-
-    public Controller() {
+    public Controller() throws IOException {
         view = new View(this);
         model = new Model();
-        view.init();
         model.restart();
-        view.setEventListener(this);
+        view.init();
         model.setEventListener(this);
+        view.setEventListener(this);
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Controller controller = new Controller();
     }
+
+    public GameObjects getGameObjects(){
+        return model.getGameObjects();
+    }
+
 
     @Override
     public void move(Direction direction) {
@@ -31,13 +37,21 @@ public class Controller implements EventListener {
 
     @Override
     public void restart() {
-        model.restart();
+        try {
+            model.restart();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         view.update();
     }
 
     @Override
     public void startNextLevel() {
-        model.startNextLevel();
+        try {
+            model.startNextLevel();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         view.update();
     }
 
@@ -45,9 +59,4 @@ public class Controller implements EventListener {
     public void levelCompleted(int level) {
         view.completed(level);
     }
-
-    public GameObjects getGameObjects(){
-        return model.getGameObjects();
-    }
-
 }
