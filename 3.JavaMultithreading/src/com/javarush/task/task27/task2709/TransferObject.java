@@ -1,10 +1,16 @@
 package com.javarush.task.task27.task2709;
 
+import java.util.concurrent.CopyOnWriteArrayList;
+
 public class TransferObject {
     private int value;
     protected volatile boolean isValuePresent = false;
+    CopyOnWriteArrayList <Integer> list = new CopyOnWriteArrayList<>();
+
 
     public synchronized int get() {
+
+
         while (!isValuePresent) {
             try {
                 wait();
@@ -19,6 +25,8 @@ public class TransferObject {
     }
 
     public synchronized void put(int value) {
+
+
         while (isValuePresent) {
             try {
                 wait();
