@@ -43,6 +43,6 @@ public class Advertisement {
     @Override
     public String toString() {
         return name + " is displaying... " +
-                amountPerOneDisplaying + ", " + amountPerOneDisplaying / duration * 1000;
+                amountPerOneDisplaying + ", " + amountPerOneDisplaying * 1000/ duration;
     }
 }

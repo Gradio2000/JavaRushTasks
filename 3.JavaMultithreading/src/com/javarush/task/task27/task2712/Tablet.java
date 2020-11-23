@@ -22,17 +22,15 @@ public class Tablet extends Observable {
         try {
             order = new Order(this);
             if (!order.isEmpty()) {
+                AdvertisementManager advertisementManager = new AdvertisementManager(order.getTotalCookingTime() * 60);
+                advertisementManager.processVideos();
                 setChanged();
                 notifyObservers(order);
             }
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");
         }
-
-        AdvertisementManager advertisementManager = new AdvertisementManager(order.getTotalCookingTime());
-        try {
-            advertisementManager.processVideos();
-        } catch (NoVideoAvailableException e) {
+        catch (NoVideoAvailableException e) {
             logger.log(Level.INFO, "No video is available for the order " + order);
         }
         return order;

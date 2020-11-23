@@ -10,14 +10,13 @@ public class AdvertisementManager {
     private int timeSeconds;
 
     public AdvertisementManager(int timeSeconds) {
-        this.timeSeconds = timeSeconds * 60;
+        this.timeSeconds = timeSeconds;
     }
 
     public void processVideos(){
         if (storage.list().isEmpty()){
             throw new NoVideoAvailableException();
         }
-        System.out.println("time = " + timeSeconds);
 
         //получим список всех доступных роликов
         List<Advertisement> fullList = storage.list();
@@ -39,8 +38,6 @@ public class AdvertisementManager {
 
         //создаем список
         List<Advertisement> result = new ArrayList<>();
-
-        //отбираем ролики
 
         for (Advertisement advertisement : fullList){
             if (advertisement.getHits() > 0 && timeSeconds >= advertisement.getDuration()){
@@ -64,9 +61,7 @@ public class AdvertisementManager {
         }).reversed());
 
         for (Advertisement advertisement : result){
-            System.out.println(advertisement.getName() + " is displaying... " + advertisement.getAmountPerOneDisplaying()
-                    + ", " + advertisement.getAmountPerOneDisplaying() * 1000 / advertisement.getDuration());
-            advertisement.revalidate();
+            System.out.println(advertisement);
         }
     }
 }
