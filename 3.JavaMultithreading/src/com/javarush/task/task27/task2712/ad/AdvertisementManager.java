@@ -47,7 +47,7 @@ public class AdvertisementManager {
         }
 
         //снова сортируем для показа сначала в порядке уменьшения стоимости
-
+        //затем в порядке увеличения стоимости секунды
         Collections.sort(result, new Comparator<Advertisement>() {
             @Override
             public int compare(Advertisement o1, Advertisement o2) {
@@ -60,6 +60,7 @@ public class AdvertisementManager {
             }
         }).reversed());
 
+        //выводим через toString();
         for (Advertisement advertisement : result){
             System.out.println(advertisement);
             advertisement.revalidate();
