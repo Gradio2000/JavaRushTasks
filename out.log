@@ -36276,3 +36276,9 @@ Caused by: java.io.IOException: Connection reset by peer
 2020-11-24 00:15:24 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
 2020-11-24 00:15:29 INFO  ApacheHttpClient.completed(32) - responseCode = 200
 2020-11-24 00:15:36 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 00:16:36 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 00:16:45 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200
+2020-11-24 00:16:46 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200
+2020-11-24 00:16:46 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
+2020-11-24 00:16:51 INFO  ApacheHttpClient.completed(32) - responseCode = 200
+2020-11-24 00:16:52 INFO  ApacheHttpClient.getTask(488) - responseCode = 200

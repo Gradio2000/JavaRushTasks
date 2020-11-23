@@ -62,6 +62,7 @@ public class AdvertisementManager {
 
         for (Advertisement advertisement : result){
             System.out.println(advertisement);
+            advertisement.revalidate();
         }
     }
 }
