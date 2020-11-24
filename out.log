@@ -36545,3 +36545,25 @@ Caused by: java.io.IOException: Connection reset by peer
 	at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:104)
 	at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:588)
 	... 1 more
+2020-11-24 20:18:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:19:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:20:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:21:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:22:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:23:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:24:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:25:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:26:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:27:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:28:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:29:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:30:10 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200
+2020-11-24 20:30:10 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200
+2020-11-24 20:30:11 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
+2020-11-24 20:30:12 INFO  ApacheHttpClient.sendEvent(535) - responseCode = 200
+2020-11-24 20:30:13 INFO  ApacheHttpClient.completed(32) - responseCode = 200
+2020-11-24 20:30:13 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
+2020-11-24 20:30:22 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200
+2020-11-24 20:30:22 INFO  ApacheHttpClient.getFilteredTasks(336) - responseCode = 200
+2020-11-24 20:30:27 INFO  ApacheHttpClient.getTaskTemplateInfo(353) - responseCode = 200
+2020-11-24 20:30:27 INFO  ApacheHttpClient.getWebResourceAsStream(502) - responseCode = 200

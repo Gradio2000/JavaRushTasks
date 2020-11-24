@@ -23,6 +23,32 @@ public class VideoSelectedEventDataRow implements EventDataRow{
         return EventType.SELECTED_VIDEOS;
     }
 
+    @Override
+    public Date getDate() {
+        return currentDate;
+    }
+
+    @Override
+    public int getTime() {
+        return totalDuration;
+    }
+
+    public List<Advertisement> getOptimalVideoSet() {
+        return optimalVideoSet;
+    }
+
+    public long getAmount() {
+        return amount;
+    }
+
+    public int getTotalDuration() {
+        return totalDuration;
+    }
+
+    public Date getCurrentDate() {
+        return currentDate;
+    }
+
     /*
 optimalVideoSet - список видео-роликов, отобранных для показа
 amount - сумма денег в копейках

@@ -25,6 +25,36 @@ public class CookedOrderEventDataRow implements EventDataRow  {
         return EventType.COOKED_ORDER;
     }
 
+    @Override
+    public Date getDate() {
+        return currentDate;
+    }
+
+    @Override
+    public int getTime() {
+        return cookingTimeSeconds;
+    }
+
+    public String getTabletName() {
+        return tabletName;
+    }
+
+    public String getCookName() {
+        return cookName;
+    }
+
+    public int getCookingTimeSeconds() {
+        return cookingTimeSeconds;
+    }
+
+    public List<Dish> getCookingDishs() {
+        return cookingDishs;
+    }
+
+    public Date getCurrentDate() {
+        return currentDate;
+    }
+
     /*
 tabletName - имя планшета
 cookName - имя повара
