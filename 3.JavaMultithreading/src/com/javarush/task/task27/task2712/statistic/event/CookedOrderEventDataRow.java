@@ -20,6 +20,11 @@ public class CookedOrderEventDataRow implements EventDataRow  {
         currentDate = new Date();
     }
 
+    @Override
+    public EventType getType() {
+        return EventType.COOKED_ORDER;
+    }
+
     /*
 tabletName - имя планшета
 cookName - имя повара

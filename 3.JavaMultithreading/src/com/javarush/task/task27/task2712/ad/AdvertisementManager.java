@@ -1,5 +1,9 @@
 package com.javarush.task.task27.task2712.ad;
 
+import com.javarush.task.task27.task2712.statistic.StatisticManager;
+import com.javarush.task.task27.task2712.statistic.event.NoAvailableVideoEventDataRow;
+import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,6 +19,7 @@ public class AdvertisementManager {
 
     public void processVideos(){
         if (storage.list().isEmpty()){
+            StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(timeSeconds));
             throw new NoVideoAvailableException();
         }
 
@@ -60,7 +65,20 @@ public class AdvertisementManager {
             }
         }).reversed());
 
-        //выводим через toString();
+
+        //перед показом рекламы собираем некоторую информацию
+        //для последующей регистрации события
+        long amount = 0;
+        int totalDuration = 0;
+        for (Advertisement advertisement : result){
+            amount += advertisement.getAmountPerOneDisplaying();
+            totalDuration += advertisement.getDuration();
+        }
+
+        //регистрируем событие в хранилище событий
+        StatisticManager.getInstance().register(new VideoSelectedEventDataRow(result, amount, totalDuration));
+
+        //выводим рекламу через toString();
         for (Advertisement advertisement : result){
             System.out.println(advertisement);
             advertisement.revalidate();

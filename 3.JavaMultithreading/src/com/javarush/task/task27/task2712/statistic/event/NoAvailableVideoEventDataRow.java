@@ -10,4 +10,9 @@ public class NoAvailableVideoEventDataRow implements EventDataRow{
         this.totalDuration = totalDuration; //время приготовления заказа в секундах
         currentDate = new Date();
     }
+
+    @Override
+    public EventType getType() {
+        return EventType.NO_AVAILABLE_VIDEO;
+    }
 }

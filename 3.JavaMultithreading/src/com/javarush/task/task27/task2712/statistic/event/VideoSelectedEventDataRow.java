@@ -18,6 +18,11 @@ public class VideoSelectedEventDataRow implements EventDataRow{
         currentDate = new Date();
     }
 
+    @Override
+    public EventType getType() {
+        return EventType.SELECTED_VIDEOS;
+    }
+
     /*
 optimalVideoSet - список видео-роликов, отобранных для показа
 amount - сумма денег в копейках
