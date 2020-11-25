@@ -18,6 +18,14 @@ public class VideoSelectedEventDataRow implements EventDataRow{
         currentDate = new Date();
     }
 
+
+//    public VideoSelectedEventDataRow(List<Advertisement> result, long amount, int totalDuration, long l) {
+//        this.optimalVideoSet = optimalVideoSet;
+//        this.amount = amount;
+//        this.totalDuration = totalDuration;
+//        this.currentDate = new Date(l);
+//    }
+
     @Override
     public EventType getType() {
         return EventType.SELECTED_VIDEOS;

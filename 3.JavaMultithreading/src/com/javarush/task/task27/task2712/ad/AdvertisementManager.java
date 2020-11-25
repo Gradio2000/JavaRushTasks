@@ -77,6 +77,7 @@ public class AdvertisementManager {
 
         //регистрируем событие в хранилище событий
         StatisticManager.getInstance().register(new VideoSelectedEventDataRow(result, amount, totalDuration));
+//        StatisticManager.getInstance().register(new VideoSelectedEventDataRow(result, amount, totalDuration, 1343134431l));
 
         //выводим рекламу через toString();
         for (Advertisement advertisement : result){
