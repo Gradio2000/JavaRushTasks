@@ -6,60 +6,76 @@ import com.javarush.task.task27.task2712.statistic.event.EventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.EventType;
 import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class StatisticManager {
-    private static StatisticManager statisticManager;
+    private static StatisticManager ourInstance = new StatisticManager();
+
+    public static StatisticManager getInstance() {
+        return ourInstance;
+    }
+
     private StatisticStorage statisticStorage = new StatisticStorage();
-    Set<Cook> cooks = new HashSet<>();
+    private Set<Cook> cooks = new HashSet<>();
 
     private StatisticManager() {
     }
 
-    public static StatisticManager getInstance(){
-        if (statisticManager == null){
-            statisticManager = new StatisticManager();
-        }
-        return statisticManager;
-    }
+    private class StatisticStorage {
+        private Map<EventType, List<EventDataRow>> storage = new HashMap<>();
 
-    public void register(EventDataRow data){
-        statisticStorage.put(data);
-    }
-
-    public void register(Cook cook){
-        cooks.add(cook);
-    }
-
-    public Map<Date, Long> getProfit(){
-        Map<Date, Long> profitByDateMap = new TreeMap<>();
-        //получим полное хранилище событий
-        Map<EventType, List<EventDataRow>> storage = statisticStorage.getStorage();
-
-        //достанем из хранилища событий список событий нужного нам типа
-        List<EventDataRow> videosList = new ArrayList<>();
-        for (EventType type : storage.keySet()){
-            if (type.equals(EventType.SELECTED_VIDEOS)){
-                videosList = storage.get(type);
+        private StatisticStorage() {
+            for (EventType type : EventType.values()) {
+                this.storage.put(type, new ArrayList<EventDataRow>());
             }
         }
 
-        //теперь попработаем с этим списком событий:
-        for (EventDataRow eventType : videosList){
-            VideoSelectedEventDataRow videoSelectedEventDataRow = (VideoSelectedEventDataRow) eventType;
-            Date eventDate = videoSelectedEventDataRow.getDate();
-            long eventAmount = videoSelectedEventDataRow.getAmount();
+        private void put(EventDataRow data) {
+            EventType type = data.getType();
+            if (!this.storage.containsKey(type))
+                throw new UnsupportedOperationException();
 
-            if (profitByDateMap.containsKey(eventDate)){
-                long tempAmont = profitByDateMap.get(eventDate) + eventAmount;
-                profitByDateMap.put(eventDate, tempAmont);
-            }
-            else {
-                profitByDateMap.put(eventDate, eventAmount);
-            }
+            this.storage.get(type).add(data);
         }
 
-        return profitByDateMap;
+        private List<EventDataRow> get(EventType type) {
+            if (!this.storage.containsKey(type))
+                throw new UnsupportedOperationException();
+
+            return this.storage.get(type);
+        }
+        public Map<EventType, List<EventDataRow>> getStorage() {
+            return storage;
+        }
+    }
+
+    public void register(EventDataRow data) {
+        this.statisticStorage.put(data);
+    }
+
+    public void register(Cook cook) {
+        this.cooks.add(cook);
+    }
+
+    public Map<String, Long> getProfitMap() {
+        Map<String, Long> res = new HashMap();
+        List<EventDataRow> rows = statisticStorage.get(EventType.SELECTED_VIDEOS);
+        SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+        long total = 0l;
+        for (EventDataRow row : rows) {
+            VideoSelectedEventDataRow dataRow = (VideoSelectedEventDataRow) row;
+            String date = format.format(dataRow.getDate());
+            if (!res.containsKey(date)) {
+                res.put(date, 0l);
+            }
+            total += dataRow.getAmount();
+            res.put(date, res.get(date) + dataRow.getAmount());
+        }
+
+        res.put("Total", total);
+
+        return res;
     }
 
     public Map<Date, Map<String, Integer>> getCookWorkTime(){
@@ -105,28 +121,4 @@ public class StatisticManager {
         }
         return cookWorkTimeMap;
     }
-
-
-
-
-    private class StatisticStorage {
-        private Map<EventType, List<EventDataRow>> storage = new HashMap<>();
-
-        public StatisticStorage() {
-            for (EventType type : EventType.values()){
-                storage.put(type, new ArrayList<>());
-            }
-        }
-
-        private void put(EventDataRow data){
-            List<EventDataRow> list = storage.get(data.getType());
-            list.add(data);
-            storage.put(data.getType(), list);
-        }
-
-        public Map<EventType, List<EventDataRow>> getStorage() {
-            return storage;
-        }
-    }
-
 }

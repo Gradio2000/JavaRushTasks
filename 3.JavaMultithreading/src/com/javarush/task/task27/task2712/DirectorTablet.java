@@ -8,38 +8,36 @@ import java.util.*;
 public class DirectorTablet {
 
     public void printAdvertisementProfit() {
-        Map<Date, Long> profitMap = StatisticManager.getInstance().getProfit();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-        List<Date> dateList = new ArrayList<>(profitMap.keySet());
-        Collections.reverse(dateList);
-        double totalAmount = 0;
-        for (Date date : dateList){
-            double profit = profitMap.get(date);
-            ConsoleHelper.writeMessage(simpleDateFormat.format(date) + " - " + String.format("%.2f", profit).replaceAll(",", "."));
-            totalAmount += profitMap.get(date);
+        StatisticManager statisticManager = StatisticManager.getInstance();
+        Map<String, Long> profitMap = statisticManager.getProfitMap();
+        ArrayList<String> list = new ArrayList(profitMap.keySet());
+        Collections.sort(list);
+
+        for (String key : list) {
+            double amount = 1.0 * profitMap.get(key) / 100;
+            System.out.println(key + " - " + String.format(Locale.ENGLISH, "%.2f", amount));
         }
-        ConsoleHelper.writeMessage("Total - " + String.format("%.2f", totalAmount).replaceAll(",", "."));
     }
 
-    public void printCookWorkloading(){
+    public void printCookWorkloading() {
         Map<Date, Map<String, Integer>> map = StatisticManager.getInstance().getCookWorkTime();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-YYYY", Locale.ENGLISH);
-        for (Date dateKey : map.keySet()){
+        for (Date dateKey : map.keySet()) {
             String date = simpleDateFormat.format(dateKey);
             ConsoleHelper.writeMessage(date);
             Map<String, Integer> cookMap = map.get(dateKey);
-            for (String name : cookMap.keySet()){
+            for (String name : cookMap.keySet()) {
                 ConsoleHelper.writeMessage(name + " - " + cookMap.get(name) + " min");
             }
         }
     }
 
-    public void printActiveVideoSet(){
+
+    public void printActiveVideoSet() {
 
     }
 
-    public void printArchivedVideoSet(){
+    public void printArchivedVideoSet() {
 
     }
-
 }
