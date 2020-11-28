@@ -22,7 +22,16 @@ public class DirectorTablet {
     }
 
     public void printCookWorkloading(){
-
+        Map<Date, Map<String, Integer>> map = StatisticManager.getInstance().getCookWorkTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-YYYY", Locale.ENGLISH);
+        for (Date dateKey : map.keySet()){
+            String date = simpleDateFormat.format(dateKey);
+            ConsoleHelper.writeMessage(date);
+            Map<String, Integer> cookMap = map.get(dateKey);
+            for (String name : cookMap.keySet()){
+                ConsoleHelper.writeMessage(name + " - " + cookMap.get(name) + " min");
+            }
+        }
     }
 
     public void printActiveVideoSet(){
