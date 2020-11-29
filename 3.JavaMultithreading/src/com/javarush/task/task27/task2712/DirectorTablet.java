@@ -1,5 +1,7 @@
 package com.javarush.task.task27.task2712;
 
+import com.javarush.task.task27.task2712.ad.Advertisement;
+import com.javarush.task.task27.task2712.ad.StatisticAdvertisementManager;
 import com.javarush.task.task27.task2712.statistic.StatisticManager;
 
 import java.text.SimpleDateFormat;
@@ -29,15 +31,25 @@ public class DirectorTablet {
             for (String name : cookMap.keySet()) {
                 ConsoleHelper.writeMessage(name + " - " + cookMap.get(name) + " min");
             }
+
+            System.out.println();
         }
     }
 
 
     public void printActiveVideoSet() {
-
+        StatisticAdvertisementManager statisticAdvertisementManager = StatisticAdvertisementManager.getInstance();
+        Set<Advertisement> activeVedeos = statisticAdvertisementManager.getActiveVideos();
+        for (Advertisement advertisement : activeVedeos){
+            ConsoleHelper.writeMessage(advertisement.getName() + " - " + advertisement.getHits());
+        }
     }
 
     public void printArchivedVideoSet() {
-
+        StatisticAdvertisementManager statisticAdvertisementManager = StatisticAdvertisementManager.getInstance();
+        Set<Advertisement> passiveVedeos = statisticAdvertisementManager.getPassiveVideos();
+        for (Advertisement advertisement : passiveVedeos){
+            ConsoleHelper.writeMessage(advertisement.getName());
+        }
     }
 }

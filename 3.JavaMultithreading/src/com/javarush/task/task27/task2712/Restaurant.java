@@ -12,14 +12,14 @@ public class Restaurant {
         cook.addObserver(waiter);
 
         tablet.createOrder();
+        tablet.createOrder();
 
         DirectorTablet directorTablet = new DirectorTablet();
-        directorTablet.printCookWorkloading();
-        directorTablet.printArchivedVideoSet();
-        directorTablet.printActiveVideoSet();
         directorTablet.printAdvertisementProfit();
+        directorTablet.printCookWorkloading();
+        directorTablet.printActiveVideoSet();
+        directorTablet.printArchivedVideoSet();
 
-//        tablet.createOrder();
 //        tablet.createOrder();
 //        tablet.createOrder();
     }

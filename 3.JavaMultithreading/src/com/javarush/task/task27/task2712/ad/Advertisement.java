@@ -1,6 +1,6 @@
 package com.javarush.task.task27.task2712.ad;
 
-public class Advertisement {
+public class Advertisement implements Comparable<Advertisement> {
     private Object content;// - видео
     private String name;// - имя/название
     private long initialAmount;// - начальная сумма, стоимость рекламы в копейках. Используем long, чтобы избежать проблем с округлением
@@ -44,5 +44,10 @@ public class Advertisement {
     public String toString() {
         return name + " is displaying... " +
                 amountPerOneDisplaying + ", " + amountPerOneDisplaying * 1000/ duration;
+    }
+
+    @Override
+    public int compareTo(Advertisement o) {
+        return name.toLowerCase().compareTo(o.name.toLowerCase());
     }
 }

@@ -13,9 +13,7 @@ public class AdvertisementStorage {
         list().add(new Advertisement(someContent, "Second Video", 100, 10, 15 * 60)); //15 min)
         list().add(new Advertisement(someContent, "Third Video", 400, 2, 10 * 60)); //10 min)
         list().add(new Advertisement(someContent, "Aaaa Video", 400, 2, 20 * 60)); //20 min)
-        list().add(new Advertisement(someContent, "Bbbb Video", 400, 2, 20 * 60)); //20 min)
-
-
+        list().add(new Advertisement(someContent, "ББББ", 400, 2, 20 * 60)); //20 min)
     }
 
     public static AdvertisementStorage getInstance(){
