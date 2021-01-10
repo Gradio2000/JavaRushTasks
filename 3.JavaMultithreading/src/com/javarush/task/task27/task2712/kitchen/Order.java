@@ -28,7 +28,22 @@ public class Order {
                     stringBuilder.append(", ");
                 }
             }
-            return "Your order: [" + stringBuilder.toString() + "] of " + tablet.toString();
+            return "Your order: [" + stringBuilder.toString() + "] of "
+                    + tablet.toString() + ", cooking time " + getTotalCookingTime() + "min";
         }
+
+    }
+
+    public int getTotalCookingTime(){
+        int duration = 0;
+        for (Dish dish : dishes){
+            duration += dish.getDuration();
+        }
+        return duration;
+
+    }
+
+    public boolean isEmpty(){
+        return dishes.isEmpty();
     }
 }
