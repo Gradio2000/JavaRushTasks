@@ -30,4 +30,15 @@ public class Advertisement {
     public long getAmountPerOneDisplaying() {
         return amountPerOneDisplaying;
     }
+
+//        2.5. В классе Advertisement создай публичный метод void revalidate(). Этот метод должен:
+//        2.5.1. Бросать UnsupportedOperationException, если количество показов не положительное число.
+//        2.5.2. Уменьшать количество показов.
+
+    public void revalidate(){
+        if (hits <= 0){
+            throw new UnsupportedOperationException();
+        }
+        hits--;
+    }
 }
