@@ -22,29 +22,29 @@ public class ConsoleHelper {
     public static List<Dish> getAllDishesForOrder() throws IOException {
         writeMessage(Dish.allDishesToString());
         writeMessage("Выберете заказ!");
-
         Dish[] dishes = Dish.values();
         List<String> allDishes = new ArrayList<>(dishes.length);
-
         for (int i = 0; i < dishes.length; i++) {
             allDishes.add(dishes[i].toString());
         }
-
         List<Dish> dishListToOrdered = new ArrayList<>();
 
         while (true){
             lable:
             {
                 String choice = readString();
+
                 if (choice.equalsIgnoreCase("exit")) {
                     break;
                 }
+
                 for (int i = 0; i < dishes.length; i++) {
                     if (choice.equalsIgnoreCase(dishes[i].toString())) {
                         dishListToOrdered.add(dishes[i]);
                         break lable;
                     }
                 }
+
                 ConsoleHelper.writeMessage("Такого блюда нет!");
             }
         }
