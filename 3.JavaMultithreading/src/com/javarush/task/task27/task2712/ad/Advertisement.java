@@ -14,9 +14,7 @@ public class Advertisement {
         this.initialAmount = initialAmount;
         this.hits = hits;
         this.duration = duration;
-        if (hits != 0){
-            amountPerOneDisplaying = initialAmount / hits;
-        }
+        amountPerOneDisplaying = hits == 0 ? 0 : initialAmount / hits;
     }
 
     public String getName() {
@@ -36,9 +34,13 @@ public class Advertisement {
 //        2.5.2. Уменьшать количество показов.
 
     public void revalidate(){
-        if (hits <= 0){
+        if (this.hits <= 0){
             throw new UnsupportedOperationException();
         }
         hits--;
+    }
+
+    public int getHits() {
+        return hits;
     }
 }

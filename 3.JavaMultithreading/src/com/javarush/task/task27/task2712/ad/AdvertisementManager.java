@@ -1,5 +1,7 @@
 package com.javarush.task.task27.task2712.ad;
 
+import com.javarush.task.task27.task2712.ConsoleHelper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,7 +21,20 @@ public class AdvertisementManager {
 //        2.2. Подобрать список видео из доступных, просмотр которых обеспечивает максимальную выгоду.
 //         (Пока делать не нужно, сделаем позже).
         List<Advertisement> advertisementList = storage.list();
-        List<Advertisement> listToWatch = new ArrayList<>(advertisementList);
+        List<Advertisement> listToWatch = new ArrayList<>();
+
+        Collections.sort(advertisementList, ((Comparator<Advertisement>) (o1, o2)
+                -> (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying()))
+                .thenComparing((o1, o2) -> o2.getDuration() - o1.getDuration()));
+
+        for (Advertisement advertisement : advertisementList){
+            if (timeSeconds - advertisement.getDuration() >= 0 && advertisement.getHits() > 0){
+                listToWatch.add(advertisement);
+                timeSeconds = timeSeconds - advertisement.getDuration();
+                advertisement.revalidate();
+            }
+        }
+
 //        2.3. Если нет рекламных видео, которые можно показать посетителю, то бросить NoVideoAvailableException,
 //        которое перехватить в оптимальном месте (подумать, где это место)
 //         и с уровнем Level.INFO логировать фразу "No video is available for the order " + order
@@ -42,12 +57,24 @@ public class AdvertisementManager {
         Collections.sort(listToWatch, new Comparator<Advertisement>() {
             @Override
             public int compare(Advertisement o1, Advertisement o2) {
-                return 0;
+                return (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying());
             }
-        });
+        }.thenComparing(new Comparator<Advertisement>() {
+            @Override
+            public int compare(Advertisement o1, Advertisement o2) {
+                return (int) (o1.getAmountPerOneDisplaying() - o2.getAmountPerOneDisplaying());
+            }
+        }));
 
-
-
+        for (Advertisement advertisement : listToWatch){
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(advertisement.getName());
+            stringBuilder.append(" is displaying... ");
+            stringBuilder.append(advertisement.getAmountPerOneDisplaying());
+            stringBuilder.append(", ");
+            stringBuilder.append(advertisement.getAmountPerOneDisplaying() * 1000/ advertisement.getDuration());
+            ConsoleHelper.writeMessage(stringBuilder.toString());
+        }
 
     }
 }
