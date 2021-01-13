@@ -1,6 +1,8 @@
 package com.javarush.task.task27.task2712.ad;
 
 import com.javarush.task.task27.task2712.ConsoleHelper;
+import com.javarush.task.task27.task2712.statistic.StatisticManager;
+import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,17 +56,18 @@ public class AdvertisementManager {
 //        где 277 - стоимость показа одной секунды рекламного ролика в тысячных частях копейки (равно 0.277 коп)
 //        Используй методы из класса Advertisement.
 //        (Этот пункт тоже пока делать не нужно, сделаем позже).
-        Collections.sort(listToWatch, new Comparator<Advertisement>() {
-            @Override
-            public int compare(Advertisement o1, Advertisement o2) {
-                return (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying());
-            }
-        }.thenComparing(new Comparator<Advertisement>() {
-            @Override
-            public int compare(Advertisement o1, Advertisement o2) {
-                return (int) (o1.getAmountPerOneDisplaying() - o2.getAmountPerOneDisplaying());
-            }
-        }));
+        Collections
+                .sort(listToWatch, ((Comparator<Advertisement>) (o1, o2) -> (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying()))
+                .thenComparing((o1, o2) -> (int) (o1.getAmountPerOneDisplaying() - o2.getAmountPerOneDisplaying())));
+
+        long summ = 0;
+        int totalDurations = 0;
+        for (Advertisement advertisement : listToWatch){
+            summ += advertisement.getAmountPerOneDisplaying();
+            totalDurations += advertisement.getDuration();
+        }
+
+        StatisticManager.getInstance().register(new VideoSelectedEventDataRow(listToWatch, summ, totalDurations));
 
         for (Advertisement advertisement : listToWatch){
             StringBuilder stringBuilder = new StringBuilder();
