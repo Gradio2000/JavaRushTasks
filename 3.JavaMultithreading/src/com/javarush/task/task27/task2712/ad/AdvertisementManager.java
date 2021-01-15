@@ -22,12 +22,20 @@ public class AdvertisementManager {
 //        Метод должен:
 //        2.2. Подобрать список видео из доступных, просмотр которых обеспечивает максимальную выгоду.
 //         (Пока делать не нужно, сделаем позже).
-        List<Advertisement> advertisementList = storage.list();
+
+
+        List<Advertisement> advertisementList = new ArrayList<>(storage.list());
+
         List<Advertisement> listToWatch = new ArrayList<>();
+
+     //   List<Advertisement> testList = storage.list();
+
 
         Collections.sort(advertisementList, ((Comparator<Advertisement>) (o1, o2)
                 -> (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying()))
                 .thenComparing((o1, o2) -> o2.getDuration() - o1.getDuration()));
+
+
 
         for (Advertisement advertisement : advertisementList){
             if (timeSeconds - advertisement.getDuration() >= 0 && advertisement.getHits() > 0){
@@ -40,6 +48,9 @@ public class AdvertisementManager {
 //        2.3. Если нет рекламных видео, которые можно показать посетителю, то бросить NoVideoAvailableException,
 //        которое перехватить в оптимальном месте (подумать, где это место)
 //         и с уровнем Level.INFO логировать фразу "No video is available for the order " + order
+
+
+
 
         if (listToWatch.isEmpty()){
             throw new NoVideoAvailableException();
@@ -68,6 +79,7 @@ public class AdvertisementManager {
         }
 
         StatisticManager.getInstance().register(new VideoSelectedEventDataRow(listToWatch, summ, totalDurations));
+
 
         for (Advertisement advertisement : listToWatch){
             StringBuilder stringBuilder = new StringBuilder();

@@ -6,7 +6,6 @@ import com.javarush.task.task27.task2712.statistic.event.EventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.EventType;
 import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -57,15 +56,11 @@ public class StatisticManager {
 
             String cookName = cookEvent.getCookName();
             int time = cookEvent.getTime();
-            if (!resultMap.containsKey(date)){
-                cookMap.merge(cookName, time, (a, b) -> a + b);
-                resultMap.put(date, cookMap);
-            }
-            else {
+            if (resultMap.containsKey(date)) {
                 cookMap = resultMap.get(date);
+            }
                 cookMap.merge(cookName, time, (a, b) -> a + b);
                 resultMap.put(date, cookMap);
-            }
         }
 
 //        Map<String, Map<String, Integer>> testMap = new TreeMap<>(Collections.reverseOrder());
@@ -81,6 +76,7 @@ public class StatisticManager {
 //        cookMapTest2.put("Bbbb", 0);
 //        testMap.put("22-Nov-2020", cookMapTest);
 //        testMap.put("23-Nov-2020", cookMapTest2);
+
         return resultMap;
     }
 

@@ -16,9 +16,9 @@ public class Restaurant {
 //        tablet.createOrder();
 //        tablet.createOrder();
         directorTablet.printAdvertisementProfit();
+        directorTablet.printCookWorkloading();
         directorTablet.printActiveVideoSet();
         directorTablet.printArchivedVideoSet();
-        directorTablet.printCookWorkloading();
 
     }
 }
