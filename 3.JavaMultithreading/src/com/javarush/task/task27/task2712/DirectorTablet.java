@@ -62,12 +62,7 @@ public class DirectorTablet {
 
    public void printArchivedVideoSet(){
       List<Advertisement> list = StatisticAdvertisementManager.getInstance().getPassiveAd();
-      list.sort(new Comparator<Advertisement>() {
-         @Override
-         public int compare(Advertisement o1, Advertisement o2) {
-            return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
-         }
-      });
+      list.sort(Comparator.comparing(o -> o.getName().toLowerCase()));
       for (Advertisement advertisement : list){
          StringBuilder stringBuilder = new StringBuilder();
          stringBuilder.append(advertisement.getName());

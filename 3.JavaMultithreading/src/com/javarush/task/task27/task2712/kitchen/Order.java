@@ -13,7 +13,7 @@ public class Order {
 
     public Order(Tablet tablet) throws IOException {
         this.tablet = tablet;
-        dishes = ConsoleHelper.getAllDishesForOrder();
+        initDishes();
     }
 
     public List<Dish> getDishes() {
@@ -54,5 +54,13 @@ public class Order {
 
     public boolean isEmpty(){
         return dishes.isEmpty();
+    }
+
+    protected void initDishes(){
+        try {
+            dishes = ConsoleHelper.getAllDishesForOrder();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
