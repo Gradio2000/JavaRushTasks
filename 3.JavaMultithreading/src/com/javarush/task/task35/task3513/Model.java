@@ -14,57 +14,57 @@ public class Model {
         resetGameTiles();
 
 
-//        Tile tile1 = new Tile();
-//        Tile tile2 = new Tile();
-//        Tile tile3 = new Tile();
-//        Tile tile4 = new Tile();
-//        Tile tile5 = new Tile();
-//        Tile tile6 = new Tile();
-//        Tile tile7 = new Tile();
-//        Tile tile8 = new Tile();
-//        Tile tile9 = new Tile();
-//        Tile tile10 = new Tile();
-//        Tile tile11 = new Tile();
-//        Tile tile12 = new Tile();
-//        Tile tile13 = new Tile();
-//        Tile tile14 = new Tile();
-//        Tile tile15 = new Tile();
-//        Tile tile16 = new Tile();
-//
-//        tile1.value = 1;
-//        tile2.value = 0;
-//        tile3.value = 0;
-//        tile4.value = 4;
-//
-//        tile5.value = 4;
-//        tile6.value = 4;
-//        tile7.value = 0;
-//        tile8.value = 3;
-//
-//        tile9.value = 0;
-//        tile10.value = 3;
-//        tile11.value = 3;
-//        tile12.value = 1;
-//
-//        tile13.value = 1;
-//        tile14.value = 1;
-//        tile15.value = 0;
-//        tile16.value = 1;
-//        gameTiles = new Tile[][]{
-//                {tile1, tile2, tile3, tile4},
-//                {tile5, tile6, tile7, tile8},
-//                {tile9, tile10, tile11, tile12},
-//                {tile13, tile14, tile15, tile16}};
+        Tile tile1 = new Tile();
+        Tile tile2 = new Tile();
+        Tile tile3 = new Tile();
+        Tile tile4 = new Tile();
+        Tile tile5 = new Tile();
+        Tile tile6 = new Tile();
+        Tile tile7 = new Tile();
+        Tile tile8 = new Tile();
+        Tile tile9 = new Tile();
+        Tile tile10 = new Tile();
+        Tile tile11 = new Tile();
+        Tile tile12 = new Tile();
+        Tile tile13 = new Tile();
+        Tile tile14 = new Tile();
+        Tile tile15 = new Tile();
+        Tile tile16 = new Tile();
+
+        tile1.value = 1;
+        tile2.value = 0;
+        tile3.value = 0;
+        tile4.value = 4;
+
+        tile5.value = 4;
+        tile6.value = 4;
+        tile7.value = 0;
+        tile8.value = 3;
+
+        tile9.value = 0;
+        tile10.value = 3;
+        tile11.value = 3;
+        tile12.value = 1;
+
+        tile13.value = 1;
+        tile14.value = 1;
+        tile15.value = 0;
+        tile16.value = 1;
+        gameTiles = new Tile[][]{
+                {tile1, tile2, tile3, tile4},
+                {tile5, tile6, tile7, tile8},
+                {tile9, tile10, tile11, tile12},
+                {tile13, tile14, tile15, tile16}};
 
 
-        //--------------
-//        for (int i = 0; i < gameTiles.length; i++) {
-//            for (int j = 0; j < gameTiles[1].length; j++) {
-//                System.out.print(gameTiles[i][j].value);
-//            }
-//            System.out.println();
-//        }
-//        //---------------
+//        --------------
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[1].length; j++) {
+                System.out.print(gameTiles[i][j].value);
+            }
+            System.out.println();
+        }
+        //---------------
         System.out.println("-------------");
 
     }
@@ -151,14 +151,52 @@ public class Model {
         if (changed){
             addTile();
         }
-        //--------------
-//        for (int i = 0; i < tiles.length; i++) {
+    }
+
+    public void down(){
+        turnArray();
+        left();
+        turnArray();
+        turnArray();
+        turnArray();
+    }
+
+    public void right(){
+        turnArray();
+        turnArray();
+        left();
+        turnArray();
+        turnArray();
+
+    }
+
+    public void up(){
+        turnArray();
+        turnArray();
+        turnArray();
+        left();
+        turnArray();
+
+
+//        //--------------
+//        for (int i = 0; i < gameTiles.length; i++) {
 //            for (int j = 0; j < gameTiles[1].length; j++) {
 //                System.out.print(gameTiles[i][j].value);
 //            }
 //            System.out.println();
 //        }
-        //---------------
+//        //---------------
+    }
+
+    private void turnArray(){
+        Tile[][] rightTile = new Tile[FIELD_WIDTH][FIELD_WIDTH];
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[1].length; j++) {
+                rightTile[j][gameTiles.length - i - 1] = gameTiles[i][j];
+            }
+        }
+        gameTiles = rightTile;
+
 
 
     }
