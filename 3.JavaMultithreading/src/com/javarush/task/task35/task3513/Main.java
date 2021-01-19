@@ -5,7 +5,7 @@ public class Main {
 
         Model model = new Model();
 
-        model.up();
+        System.out.println(model.canMove());;
 
 
 

@@ -32,24 +32,24 @@ public class Model {
         Tile tile16 = new Tile();
 
         tile1.value = 1;
-        tile2.value = 0;
-        tile3.value = 0;
+        tile2.value = 2;
+        tile3.value = 3;
         tile4.value = 4;
 
-        tile5.value = 4;
-        tile6.value = 4;
-        tile7.value = 0;
-        tile8.value = 3;
+        tile5.value = 5;
+        tile6.value = 6;
+        tile7.value = 7;
+        tile8.value = 8;
 
-        tile9.value = 0;
-        tile10.value = 3;
-        tile11.value = 3;
-        tile12.value = 1;
+        tile9.value = 9;
+        tile10.value = 10;
+        tile11.value = 11;
+        tile12.value = 12;
 
-        tile13.value = 1;
-        tile14.value = 1;
-        tile15.value = 0;
-        tile16.value = 1;
+        tile13.value = 13;
+        tile14.value = 14;
+        tile15.value = 15;
+        tile16.value = 16;
         gameTiles = new Tile[][]{
                 {tile1, tile2, tile3, tile4},
                 {tile5, tile6, tile7, tile8},
@@ -68,6 +68,31 @@ public class Model {
         System.out.println("-------------");
 
     }
+
+    public Tile[][] getGameTiles() {
+        return gameTiles;
+    }
+
+    public boolean canMove(){
+         if (getEmptyTiles().size() > 0){
+             return true;
+         }
+
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[1].length; j++) {
+                if (j < gameTiles[1].length - 1 && gameTiles[i][j].value == gameTiles[i][j + 1].value ){
+                    return true;
+                }
+                if (i < gameTiles.length - 1 && gameTiles[i][j].value == gameTiles[i + 1][j].value){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
 
     private void addTile(){
         List<Tile> tileList = getEmptyTiles();
