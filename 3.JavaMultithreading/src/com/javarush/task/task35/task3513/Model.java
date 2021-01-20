@@ -203,4 +203,33 @@ public class Model {
            down();
        }
     }
+
+    public boolean hasBoardChanged(){
+        int gameTilesWeight = 0;
+        int previousStatesWeight = 0;
+        Tile[][] previous = previousStates.peek();
+
+        for (int i = 0; i < gameTiles.length; i++) {
+            for (int j = 0; j < gameTiles[1].length; j++) {
+                gameTilesWeight += gameTiles[i][j].value;
+            }
+        }
+
+        for (int i = 0; i < previous.length; i++) {
+            for (int j = 0; j < previous[1].length; j++) {
+                previousStatesWeight += previous[i][j].value;
+            }
+        }
+        return gameTilesWeight != previousStatesWeight;
+    }
+
+    public MoveEfficiency getMoveEfficiency(Move move){
+        MoveEfficiency moveEfficiency = new MoveEfficiency(-1, 0, move);
+        move.move();
+        if (hasBoardChanged()) {
+            moveEfficiency = new MoveEfficiency(getEmptyTiles().size(), score, move);
+        }
+        rollback();
+        return moveEfficiency;
+    }
 }
