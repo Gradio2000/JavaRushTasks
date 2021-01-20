@@ -2,70 +2,20 @@ package com.javarush.task.task35.task3513;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Model {
     private static final int FIELD_WIDTH = 4;
     private Tile [][] gameTiles;
     public int score;
     public int maxTile;
+    private Stack<Tile[][]> previousStates = new Stack();
+    private Stack<Integer> previousScores = new Stack();
+    private boolean isSaveNeeded = true;
+
 
     public Model() {
         resetGameTiles();
-
-
-//        Tile tile1 = new Tile();
-//        Tile tile2 = new Tile();
-//        Tile tile3 = new Tile();
-//        Tile tile4 = new Tile();
-//        Tile tile5 = new Tile();
-//        Tile tile6 = new Tile();
-//        Tile tile7 = new Tile();
-//        Tile tile8 = new Tile();
-//        Tile tile9 = new Tile();
-//        Tile tile10 = new Tile();
-//        Tile tile11 = new Tile();
-//        Tile tile12 = new Tile();
-//        Tile tile13 = new Tile();
-//        Tile tile14 = new Tile();
-//        Tile tile15 = new Tile();
-//        Tile tile16 = new Tile();
-//
-//        tile1.value = 1;
-//        tile2.value = 2;
-//        tile3.value = 3;
-//        tile4.value = 4;
-//
-//        tile5.value = 5;
-//        tile6.value = 6;
-//        tile7.value = 7;
-//        tile8.value = 8;
-//
-//        tile9.value = 9;
-//        tile10.value = 10;
-//        tile11.value = 11;
-//        tile12.value = 12;
-//
-//        tile13.value = 13;
-//        tile14.value = 14;
-//        tile15.value = 15;
-//        tile16.value = 16;
-//        gameTiles = new Tile[][]{
-//                {tile1, tile2, tile3, tile4},
-//                {tile5, tile6, tile7, tile8},
-//                {tile9, tile10, tile11, tile12},
-//                {tile13, tile14, tile15, tile16}};
-//
-//
-//        //--------------
-//        for (int i = 0; i < gameTiles.length; i++) {
-//            for (int j = 0; j < gameTiles[1].length; j++) {
-//                System.out.print(gameTiles[i][j].value);
-//            }
-//            System.out.println();
-//        }
-//        //---------------
-//        System.out.println("-------------");
-
     }
 
     public Tile[][] getGameTiles() {
@@ -197,16 +147,6 @@ public class Model {
         turnArray();
         left();
         turnArray();
-
-
-//        //--------------
-//        for (int i = 0; i < gameTiles.length; i++) {
-//            for (int j = 0; j < gameTiles[1].length; j++) {
-//                System.out.print(gameTiles[i][j].value);
-//            }
-//            System.out.println();
-//        }
-//        //---------------
     }
 
     private void turnArray(){
@@ -217,5 +157,28 @@ public class Model {
             }
         }
         gameTiles = rightTile;
+    }
+
+    private void saveState(Tile[][] oldTiles){
+        Tile[][] savedGame = new Tile[oldTiles.length][oldTiles[1].length];
+        for (int i = 0; i < oldTiles.length; i++) {
+            for (int j = 0; j < oldTiles.length; j++) {
+                Tile tile = new Tile();
+                tile.value = oldTiles[i][j].value;
+                savedGame[i][j] = tile;
+            }
+        }
+        previousStates.push(savedGame);
+        previousScores.push(score);
+        isSaveNeeded = false;
+    }
+
+    public void rollback(){
+        if (!previousStates.isEmpty()){
+            gameTiles = previousStates.pop();
+        }
+        if (!previousScores.isEmpty()){
+            score = previousScores.pop();
+        }
     }
 }
