@@ -109,6 +109,9 @@ public class Model {
     }
 
     public void left(){
+        if (isSaveNeeded){
+            saveState(gameTiles);
+        }
         boolean changed = false;
         Tile[] tiles = new Tile[FIELD_WIDTH];
         for (int i = 0; i < gameTiles.length; i++) {
@@ -122,9 +125,11 @@ public class Model {
         if (changed){
             addTile();
         }
+        isSaveNeeded = true;
     }
 
     public void down(){
+        saveState(gameTiles);
         turnArray();
         left();
         turnArray();
@@ -133,15 +138,16 @@ public class Model {
     }
 
     public void right(){
+        saveState(gameTiles);
         turnArray();
         turnArray();
         left();
         turnArray();
         turnArray();
-
     }
 
     public void up(){
+        saveState(gameTiles);
         turnArray();
         turnArray();
         turnArray();
